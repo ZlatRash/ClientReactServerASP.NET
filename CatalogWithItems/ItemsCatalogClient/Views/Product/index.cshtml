@@ -1,0 +1,39 @@
+﻿@model List<Product>
+@{
+	ViewData["Title"] = "Home Page";
+}
+
+<div>
+	<a href="/Product/Add" class="btn btn-primary">Добавить товар</a>
+</div>
+<div class="text-center">
+	<table class="table">
+		<thead>
+			<tr>
+				<th scope="col">#</t>
+				<th scope="col">Название</th>
+				<th scope="col">Цена</th>
+				<th scope="col"> </th>
+			</tr>
+		</thead>
+		<tbody>
+			@{var i = 1;}
+			@foreach (var product in Model)
+			{
+				<tr>
+					<th scope="col">@i</th>
+					<td>@product.Name</td>
+					<td>@product.Price</td>
+					@{
+						i++;
+					}
+					<td>
+						<a href="/Product/Edit/@product.Id">Редактировать</a>
+						<a href="/Product/Remove/@product.Id">Удалить</a>
+					</td>
+				</tr>
+			}
+		</tbody>
+	</table>
+
+</div>

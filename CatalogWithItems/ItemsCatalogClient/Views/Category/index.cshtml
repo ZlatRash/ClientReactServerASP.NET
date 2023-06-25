@@ -1,0 +1,39 @@
+﻿@model List<Category>
+@{
+	ViewData["Title"] = "Home Page";
+}
+
+<div>
+	<a href="/Category/Add" class="btn btn-primary">Добавить категорию</a>
+</div>
+<div class="text-center">
+	<table class="table" >
+		<thead>
+			<tr>
+				<th scope="col">#</th>
+				<th scope="col">Номер</th>
+				<th scope="col">Тип</th>
+				<th scope="col"> </th>
+			</tr>
+		</thead>
+		<tbody>
+			@{var i = 1;}
+			@foreach (var category in Model)
+			{
+				<tr>
+					<th scope="col">@i</th>
+					@{
+						i++;
+					}
+				<td>@category.Name</td>
+				<td>@category.Type</td>
+				<td>
+						<a href="/Category/Edit/@category.Id">Редактировать</a>
+					<a href="/Category/Remove/@category.Id">Удалить</a>
+				</td>
+			</tr>
+			}
+		</tbody>
+	</table>
+
+</div>

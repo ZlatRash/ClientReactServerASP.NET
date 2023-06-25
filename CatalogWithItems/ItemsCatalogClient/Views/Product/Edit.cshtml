@@ -1,0 +1,29 @@
+﻿@model (Product? product, SelectList selectList);
+@{
+	ViewData["Title"] = "Home Page";
+}
+
+<form action="/Product/Edit/" method="post">
+	<input type="hidden" name="id" value="@Model.product?.Id" />
+	<div class="my-3">
+		<div>
+			<label>
+				Название товара:
+			</label>
+			<input type="text" name="name" value="@Model.product?.Name" class="form-control" />
+		</div>
+		<div>
+			<label>
+				Цена:
+			</label>
+			<input type="number" name="price" value="@Model.product?.Price" class="form-control" />
+		</div>
+		<div class="my-3">
+			<label>
+				Категория:
+			</label>
+			<select name="categoryId" class="form-control" asp-items="Model.selectList"></select>
+		</div>
+		<button type="submit" class="btn btn-primary">Сохранить</button>
+	</div>
+</form>

@@ -1,0 +1,22 @@
+﻿@using CatalogWithItemsData.Types
+@{
+	ViewData["Title"] = "Home Page";
+}
+
+	<form action="/Category/Add" method="post">
+		<div class="my-3">
+			<div>
+				<label>
+			Название категории:
+				</label>
+				<input type="text" name="name" class="form-control"/>
+			</div>
+		<div class="my-3">
+				<label>
+			Тип:
+				</label>
+				<select name="type" class="form-control" asp-items="Html.GetEnumSelectList<CategoryType>()"></select>
+		</div>
+		<button type="submit" class="btn btn-primary">Сохранить</button>
+		</div>
+	</form>

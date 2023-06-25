@@ -1,0 +1,26 @@
+﻿@using CatalogWithItemsData.Types
+@{
+	ViewData["Title"] = "Home Page";
+}
+
+	<form action="/Product/Add" method="post">
+		<div class="my-3">
+				<label>
+			Название товара:
+				</label>
+				<input type="text" name="name" class="form-control"/>
+		</div>
+		<div class="my-3">
+				<label>
+			Цена:
+				</label>
+				<input type="number" name="price" class="form-control"/>
+		</div>
+	    <div class="my-3">
+			<label>
+			Категория:
+			</label>
+			<select name="categoryId" class="form-control" asp-items="Model"></select>
+		</div>
+		<button type="submit" class="btn btn-primary">Сохранить</button>
+	</form>

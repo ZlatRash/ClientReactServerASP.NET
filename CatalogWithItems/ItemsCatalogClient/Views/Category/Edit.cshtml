@@ -1,0 +1,24 @@
+﻿@using CatalogWithItemsData.Models;
+@using CatalogWithItemsData.Types;
+@{
+	ViewData["Title"] = "Home Page";
+}
+
+<form action="/Category/Edit/" method="post">
+	<input type="hidden" name="id" value="@Model.Id" />
+	<div class="my-3">
+		<div>
+			<label>
+				Название категории:
+			</label>
+			<input type="text" name="name" class="form-control" value="@Model.Name"/>
+		</div>
+		<div>
+			<label>
+				Тип:
+			</label>
+			<select name="type" value="@Model.Type" class="form-control" asp-items="Html.GetEnumSelectList<CategoryType>()"></select>
+		</div>
+		<button type="submit" class="btn btn-primary">Сохранить</button>
+	</div>
+</form>
